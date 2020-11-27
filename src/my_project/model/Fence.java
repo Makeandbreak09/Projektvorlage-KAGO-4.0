@@ -3,6 +3,8 @@ package my_project.model;
 import KAGO_framework.model.GraphicalObject;
 import KAGO_framework.view.DrawTool;
 
+import java.awt.*;
+
 public class Fence extends GraphicalObject{
 
     public Fence(int pX, int pY, int pWidth, int pHeight){
@@ -17,7 +19,7 @@ public class Fence extends GraphicalObject{
     @Override
     public  void draw(DrawTool drawTool){
 
-        drawTool.setCurrentColor(150, 150, 150, 255);
+        drawTool.setCurrentColor(new Color(150, 150, 150, 255));
         drawTool.drawFilledRectangle(x, y, width*7/5, height/5);
         drawTool.drawFilledRectangle(x, y+height*2/5, width*7/5, height/5);
         drawTool.drawFilledRectangle(x+width*1/5, y-height/5, width/5, height*5/5);

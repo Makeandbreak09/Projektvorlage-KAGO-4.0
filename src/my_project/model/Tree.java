@@ -3,6 +3,8 @@ package my_project.model;
 import KAGO_framework.model.GraphicalObject;
 import KAGO_framework.view.DrawTool;
 
+import java.awt.*;
+
 public class Tree extends GraphicalObject {
 
     private int r;
@@ -20,10 +22,10 @@ public class Tree extends GraphicalObject {
     @Override
     public void draw(DrawTool drawTool){
         //Zeichne Baum
-        drawTool.setCurrentColor(112, 54, 9, 255);
-        drawTool.drawFilledRectangle(x+width*1/3, y+r/2 , width/3, height);
-        drawTool.setCurrentColor(64, 117, 30, 255);
-        drawTool.drawFilledCircle(x, y, r);
+        drawTool.setCurrentColor(new Color(112, 54, 9, 255));
+        drawTool.drawFilledRectangle(x+width*1/3, y , width/3, height);
+        drawTool.setCurrentColor(new Color(64, 117, 30, 255));
+        drawTool.drawFilledCircle(x+width/2, y, r);
 
 
     }

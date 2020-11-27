@@ -3,6 +3,8 @@ package my_project.model;
 import KAGO_framework.model.GraphicalObject;
 import KAGO_framework.view.DrawTool;
 
+import java.awt.*;
+
 /**
  * Ein Objekt dieser Klasse stellt ein simples Haus dar.
  */
@@ -28,26 +30,26 @@ public class House extends GraphicalObject {
      */
     public void draw(DrawTool drawTool) {
         //Zeichnet die Häuser
-        drawTool.setCurrentColor(100, 100, 100, 255);
+        drawTool.setCurrentColor(new Color(100, 100, 100, 255));
         drawTool.drawFilledRectangle(x+width/5, y-height/3, height/10, width/3);
 
-        drawTool.setCurrentColor(0,0,0,255);
+        drawTool.setCurrentColor(new Color(0,0,0,255));
         drawTool.drawFilledTriangle(x,y,x+width,y,x+width/2,y-height/3);
-        drawTool.setCurrentColor(255,0,0,255);
+        drawTool.setCurrentColor(new Color(255,0,0,255));
         drawTool.drawFilledRectangle(x,y,width,height);
 
         //Zeichnet die Tür
-        drawTool.setCurrentColor(0,0,0,255);
-        drawTool.drawFilledRectangle(x+width/2, y+height-height*2/5, width*1.5/5, height*2/5);
-        drawTool.setCurrentColor(255, 255,0 , 255);
-        drawTool.drawFilledCircle(x+width/2+(width/3/3), y+height-(height/3/2), (width+height)/2/20);
+        drawTool.setCurrentColor(new Color(0,0,0,255));
+        drawTool.drawFilledRectangle(x+width*3/5, y+height-height*2/5, width*1/5, height*2/5);
+        drawTool.setCurrentColor(new Color(255, 255,0 , 255));
+        drawTool.drawFilledCircle(x+width*3.25/5, y+height-height*1.25/5, (width+height)/5/20);
 
         //Zeichnet die Fenster
-        drawTool.setCurrentColor(0,0,0,255);
+        drawTool.setCurrentColor(new Color(0,0,0,255));
         drawTool.drawFilledRectangle(x+width/5, y+height*1/5, width/5, height/5);
         drawTool.drawFilledRectangle(x+width*3/5, y+height*1/5, width/5, height/5);
 
-        drawTool.setCurrentColor(100, 100, 100, 255);
+        drawTool.setCurrentColor(new Color(100, 100, 100, 255));
         drawTool.drawLine(x+width/5+width/5/2, y+height*1/5, x+width/5+width/5/2, y+height*1/5+height/5);
         drawTool.drawLine(x+width/5, y+height*1/5+height/5/2, x+width*2/5, y+height*1/5+height/5/2);
 
@@ -56,7 +58,7 @@ public class House extends GraphicalObject {
 
         drawTool.drawRectangle(x+width/5, y+height*1/5, width/5, height/5);
 
-        drawTool.setCurrentColor(0,0,0,255);
+        drawTool.setCurrentColor(new Color(0,0,0,255));
         drawTool.drawTriangle(x,y,x+width,y,x+width/2,y-height/3);
     }
 

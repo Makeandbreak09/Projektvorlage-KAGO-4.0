@@ -3,6 +3,8 @@ package my_project.model;
 import KAGO_framework.model.GraphicalObject;
 import KAGO_framework.view.DrawTool;
 
+import java.awt.*;
+
 public class Cloud extends GraphicalObject {
 
     private int r;
@@ -16,10 +18,8 @@ public class Cloud extends GraphicalObject {
 
     public Cloud(int pX, int pY, int r, Sun sun){
 
-        x = pX;
-        y = pY;
-        x = x-r/2;
-        y = y-r/2;
+        x = pX-r/2;
+        y = pY-r/2;
 
         startPosX = x;
         startPosY = y;
@@ -40,13 +40,12 @@ public class Cloud extends GraphicalObject {
     public void draw(DrawTool drawTool){
         light = sun.getLight();
 
-        drawTool.setCurrentColor(200, 200, 200, 150);
-        drawTool.drawFilledCircle(x+r*0/7, y+r*1/7, r*3/7);
-        drawTool.drawFilledCircle(x+r*2/7, y+r*1/7, r*3/7);
-        drawTool.drawFilledCircle(x+r*4/7, y+r*1/7, r*3/7);
-        drawTool.drawFilledCircle(x+r*1/7, y+r*3/7, r*3/7);
-        drawTool.drawFilledCircle(x+r*3/7, y+r*3/7, r*3/7);
-
+        drawTool.setCurrentColor(new Color(200, 200, 200, 150));
+        drawTool.drawFilledCircle(x+r*2/10, y+r*4/10, r*2/10);
+        drawTool.drawFilledCircle(x+r*5/10, y+r*4/10, r*2/10);
+        drawTool.drawFilledCircle(x+r*8/10, y+r*4/10, r*2/10);
+        drawTool.drawFilledCircle(x+r*3.5/10, y+r*6/10, r*2/10);
+        drawTool.drawFilledCircle(x+r*6.5/10, y+r*6/10, r*2/10);
     }
 
     @Override

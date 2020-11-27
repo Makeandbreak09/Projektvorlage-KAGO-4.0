@@ -3,6 +3,8 @@ package my_project.model;
 import KAGO_framework.model.GraphicalObject;
 import KAGO_framework.view.DrawTool;
 
+import java.awt.*;
+
 
 public class Flocke extends GraphicalObject{
 
@@ -20,8 +22,8 @@ public class Flocke extends GraphicalObject{
     @Override
     public  void draw(DrawTool drawTool){
 
-        drawTool.setCurrentColor(255, 255 ,255 ,230);
-        drawTool.drawFilledCircle(x, y, 5);
+        drawTool.setCurrentColor(new Color(255, 255 ,255 ,230));
+        drawTool.drawFilledCircle(x, y, 5/2);
 
     }
 
@@ -29,6 +31,7 @@ public class Flocke extends GraphicalObject{
     public void update(double dt) {
 
         y = y+speedY*dt;
+        x = x+Math.sin(y/5)*speedY/10;
 
         if(x+width>1000){
             x = 1000-width;

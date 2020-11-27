@@ -3,6 +3,8 @@ package my_project.model;
 import KAGO_framework.model.GraphicalObject;
 import KAGO_framework.view.DrawTool;
 
+import java.awt.*;
+
 public class LightSetter extends GraphicalObject{
 
     private double light;
@@ -23,7 +25,7 @@ public class LightSetter extends GraphicalObject{
     public void draw(DrawTool drawTool){
         updateLight(sun);
 
-        drawTool.setCurrentColor(0, 0, 0, (int) Math.round(255*light));
+        drawTool.setCurrentColor(new Color(0, 0, 0, (int) Math.round(255*light)));
         drawTool.drawFilledRectangle(x, y, width, height);
     }
 

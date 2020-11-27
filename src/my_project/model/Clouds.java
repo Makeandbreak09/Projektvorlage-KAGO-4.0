@@ -15,7 +15,7 @@ public class Clouds extends GraphicalObject{
         allClouds = new ArrayList<Cloud>();
         this.sun = sun;
 
-        for(int i = 0; i < 0; i++){
+        for(int i = 0; i < (int)(Math.random()*5+1); i++){
             this.newCloud((int) (Math.random()*1000), (int) (Math.random()*700));
         }
 

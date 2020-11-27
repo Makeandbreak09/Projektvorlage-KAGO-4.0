@@ -3,6 +3,8 @@ package my_project.model;
 import KAGO_framework.model.GraphicalObject;
 import KAGO_framework.view.DrawTool;
 
+import java.awt.*;
+
 
 public class Stern extends GraphicalObject{
 
@@ -23,7 +25,7 @@ public class Stern extends GraphicalObject{
     public  void draw(DrawTool drawTool){
         light = sun.getLight();
 
-        drawTool.setCurrentColor(255, 255, 0, (int) Math.round(255*light*Math.random()));
+        drawTool.setCurrentColor(new Color(255, 255, 0, (int) Math.round(255*light*Math.random())));
         drawTool.drawFilledCircle(x, y, 5);
 
     }

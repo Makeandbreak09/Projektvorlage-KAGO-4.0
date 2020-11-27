@@ -3,6 +3,8 @@ package my_project.model;
 import KAGO_framework.model.GraphicalObject;
 import KAGO_framework.view.DrawTool;
 
+import java.awt.*;
+
 public class Sun extends GraphicalObject {
 
     private int r;
@@ -11,7 +13,7 @@ public class Sun extends GraphicalObject {
 
     public Sun(int pX, int pY, int pRadius, int pSpeed){
 
-        x = pX;
+        x = pX-pRadius;
         y = pY;
         r = pRadius;
         speed = pSpeed;
@@ -22,7 +24,7 @@ public class Sun extends GraphicalObject {
     @Override
     public void draw(DrawTool drawTool){
 
-        drawTool.setCurrentColor(225, 255, 0, 255);
+        drawTool.setCurrentColor(new Color(225, 255, 0, 255));
         drawTool.drawFilledCircle(x, y, r);
 
     }
@@ -32,8 +34,8 @@ public class Sun extends GraphicalObject {
 
         x = x+speed*dt;
 
-        if(x > 1000){
-            x = - 1000-r;
+        if(x > 1000+r/2){
+            x = -1000-r/2;
         }
 
         y = 0.001*(x-500)*(x-500)+100;

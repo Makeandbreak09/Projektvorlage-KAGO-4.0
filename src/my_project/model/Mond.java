@@ -3,6 +3,8 @@ package my_project.model;
 import KAGO_framework.model.GraphicalObject;
 import KAGO_framework.view.DrawTool;
 
+import java.awt.*;
+
 public class Mond extends GraphicalObject {
 
     private int r;
@@ -21,7 +23,7 @@ public class Mond extends GraphicalObject {
     @Override
     public void draw(DrawTool drawTool){
 
-        drawTool.setCurrentColor(100, 100, 100, 255);
+        drawTool.setCurrentColor(new Color(100, 100, 100, 255));
         drawTool.drawFilledCircle(x, y, r);
 
 

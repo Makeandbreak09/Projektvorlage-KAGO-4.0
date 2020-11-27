@@ -3,6 +3,8 @@ package my_project.model;
 import KAGO_framework.model.GraphicalObject;
 import KAGO_framework.view.DrawTool;
 
+import java.awt.*;
+
 public class Rentier extends GraphicalObject {
 
     private boolean nachOben;
@@ -23,7 +25,7 @@ public class Rentier extends GraphicalObject {
     @Override
     public void draw(DrawTool drawTool){
 
-        drawTool.setCurrentColor(188, 143, 143, 255);
+        drawTool.setCurrentColor(new Color(188, 143, 143, 255));
         drawTool.drawFilledRectangle(x, y, 75, 35);
         drawTool.drawFilledRectangle(x+5, y+35, 10, 20);
         drawTool.drawFilledRectangle(x+60, y+35, 10, 20);

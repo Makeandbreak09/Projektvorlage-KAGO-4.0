@@ -43,7 +43,7 @@ public class ProgramController {
         Background aBackground = new Background(0, 0, 1000, 1029);
         viewController.draw(aBackground);
 
-        Sun aSun = new Sun(0, 100, 100, 50);
+        Sun aSun = new Sun(0, 100, 50, 50);
         viewController.draw(aSun);
 
         House aHouse = new House(100, 1000-200, 200, 200);
@@ -53,7 +53,7 @@ public class ProgramController {
         House cHouse = new House(700, 1000-200, 200, 200);
         viewController.draw(cHouse);
 
-        Tree aTree = new Tree(300, 1000-170,  100, 170, 100);
+        Tree aTree = new Tree(300, 1000-170,  100, 170, 50);
         viewController.draw(aTree);
 
         Fence aFence = new Fence(300, 1000-50,  100, 50);
@@ -79,7 +79,7 @@ public class ProgramController {
         Sterne aSterne = new Sterne(aSun);
         viewController.draw(aSterne);
 
-        Mond aMond = new Mond(-1000, 100, 75, 50);
+        Mond aMond = new Mond(-1000, 100, 75/2, 50);
         viewController.draw(aMond);
 
         aGameManager = new GameManager(aGeschenke);
@@ -106,6 +106,8 @@ public class ProgramController {
     public void mouseClicked(MouseEvent e){
         if(e.getButton() == 1) {
             aGameManager.checkCollision(e.getX(), e.getY());
+        }else if(e.getButton() == 3){
+            aClouds.newCloud(e.getX(), e.getY());
         }
 
     }
