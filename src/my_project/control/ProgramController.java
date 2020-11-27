@@ -1,11 +1,10 @@
 package my_project.control;
 
-import KAGO_framework.control.DatabaseController;
 import KAGO_framework.control.ViewController;
-import my_project.model.House;
 
-import javax.swing.*;
 import java.awt.event.MouseEvent;
+
+import my_project.model.*;
 
 /**
  * Ein Objekt der Klasse ProgramController dient dazu das Programm zu steuern. Die updateProgram - Methode wird
@@ -18,46 +17,97 @@ public class ProgramController {
 
     // Referenzen
     private ViewController viewController;  // diese Referenz soll auf ein Objekt der Klasse viewController zeigen. Über dieses Objekt wird das Fenster gesteuert.
+    public Geschenke aGeschenke;
+    public Clouds aClouds;
+    public Flocken aFlocken;
+    public GameManager aGameManager;
 
     /**
      * Konstruktor
      * Dieser legt das Objekt der Klasse ProgramController an, das den Programmfluss steuert.
      * Damit der ProgramController auf das Fenster zugreifen kann, benötigt er eine Referenz auf das Objekt
      * der Klasse viewController. Diese wird als Parameter übergeben.
-     * @param viewController das viewController-Objekt des Programms
+     * @param ViewController das viewController-Objekt des Programms
      */
-    public ProgramController(ViewController viewController){
-        this.viewController = viewController;
+    public ProgramController(ViewController ViewController){
+
+        this.viewController = ViewController;
+
+
     }
 
     /**
      * Diese Methode wird genau ein mal nach Programmstart aufgerufen. Achtung: funktioniert nicht im Szenario-Modus
      */
     public void startProgram() {
-        //Hier wird eine lokale Referenz für ein House-Objekt angelegt.
-        House firstHouse = new House();
+        Background aBackground = new Background(0, 0, 1000, 1029);
+        viewController.draw(aBackground);
 
-        //Damit die draw-Methode des Objekts hinter firstHouse aufgerufen wird,
-        //muss dem ViewController-Objekt mitgeteilt werden, dass es das House-Objekt zeichnen soll.
-        viewController.draw(firstHouse);
+        Sun aSun = new Sun(0, 100, 100, 50);
+        viewController.draw(aSun);
+
+        House aHouse = new House(100, 1000-200, 200, 200);
+        viewController.draw(aHouse);
+        House bHouse = new House(450, 1000-200, 200, 200);
+        viewController.draw(bHouse);
+        House cHouse = new House(700, 1000-200, 200, 200);
+        viewController.draw(cHouse);
+
+        Tree aTree = new Tree(300, 1000-170,  100, 170, 100);
+        viewController.draw(aTree);
+
+        Fence aFence = new Fence(300, 1000-50,  100, 50);
+        viewController.draw(aFence);
+
+        Rentier aRentier = new Rentier(100, 200);
+        viewController.draw(aRentier);
+        Rentier bRentier = new Rentier(300, 500);
+        viewController.draw(bRentier);
+
+        aFlocken = new Flocken();
+        viewController.draw(aFlocken);
+
+        aGeschenke = new Geschenke();
+        viewController.draw(aGeschenke);
+
+        aClouds = new Clouds(aSun);
+        viewController.draw(aClouds);
+
+        LightSetter aLightSetter = new LightSetter(0, 0, 1000, 1029, aSun);
+        viewController.draw(aLightSetter);
+
+        Sterne aSterne = new Sterne(aSun);
+        viewController.draw(aSterne);
+
+        Mond aMond = new Mond(-1000, 100, 75, 50);
+        viewController.draw(aMond);
+
+        aGameManager = new GameManager(aGeschenke);
+
+
     }
 
     /**
-     * Sorgt dafür, dass zunächst gewartet wird, damit der SoundController die
-     * Initialisierung abschließen kann. Die Wartezeit ist fest und damit nicht ganz sauber
-     * implementiert, aber dafür funktioniert das Programm auch bei falscher Java-Version
-     * @param dt Zeit seit letzter Frame
+     * Für FORTGESCHRITTENE
+     * Diese Methode wird wiederholt automatisch aufgerufen und zwar für jede Frame einmal, d.h. über 25 mal pro Sekunde.
+     * @param dt Die Zeit in Sekunden, die seit dem letzten Aufruf der Methode vergangen ist.
      */
     public void updateProgram(double dt){
 
-    }
+        aGameManager.checkPos();
 
+    }
 
     /**
-     * Verarbeitet einen Mausklick.
-     * @param e das Objekt enthält alle Informationen zum Klick
+     * Für FORTGESCHRITTENE
+     * Diese Methode wird einmalig aufgerufen für jedes Mal, wenn die Maus im Fenster geklickt wird.
+     * @param e Das übergebene Objekt enthält alle Informationen zum MouseEvent
      */
     public void mouseClicked(MouseEvent e){
+        if(e.getButton() == 1) {
+            aGameManager.checkCollision(e.getX(), e.getY());
+        }
 
     }
+
 }
