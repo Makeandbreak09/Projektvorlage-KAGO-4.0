@@ -16,7 +16,7 @@ public class Sterne extends GraphicalObject{
         this.allStars = new ArrayList<Stern>();
 
 
-        amount = (int) (Math.random()*30) +20;
+        amount = (int) (Math.random()*25) + 75;
 
 
         for(int i=0; i<amount; i += 1){

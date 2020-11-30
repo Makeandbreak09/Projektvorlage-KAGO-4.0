@@ -26,7 +26,7 @@ public class Stern extends GraphicalObject{
         light = sun.getLight();
 
         drawTool.setCurrentColor(new Color(255, 255, 0, (int) Math.round(255*light*Math.random())));
-        drawTool.drawFilledCircle(x, y, 5);
+        drawTool.drawFilledCircle(x, y, 5/2);
 
     }
 
