@@ -17,10 +17,7 @@ public class ProgramController {
 
     // Referenzen
     private ViewController viewController;  // diese Referenz soll auf ein Objekt der Klasse viewController zeigen. Über dieses Objekt wird das Fenster gesteuert.
-    public Geschenke aGeschenke;
-    public Clouds aClouds;
-    public Flocken aFlocken;
-    public GameManager aGameManager;
+    
 
     /**
      * Konstruktor
@@ -40,50 +37,6 @@ public class ProgramController {
      * Diese Methode wird genau ein mal nach Programmstart aufgerufen. Achtung: funktioniert nicht im Szenario-Modus
      */
     public void startProgram() {
-        Background aBackground = new Background(0, 0, 1000, 1029);
-        viewController.draw(aBackground);
-
-        Sun aSun = new Sun(0, 100, 50, 50);
-        viewController.draw(aSun);
-
-        House aHouse = new House(100, 1000-200, 200, 200);
-        viewController.draw(aHouse);
-        House bHouse = new House(450, 1000-200, 200, 200);
-        viewController.draw(bHouse);
-        House cHouse = new House(700, 1000-200, 200, 200);
-        viewController.draw(cHouse);
-
-        Tree aTree = new Tree(300, 1000-170,  100, 170, 50);
-        viewController.draw(aTree);
-
-        Fence aFence = new Fence(300, 1000-50,  100, 50);
-        viewController.draw(aFence);
-
-        Rentier aRentier = new Rentier(100, 200);
-        viewController.draw(aRentier);
-        Rentier bRentier = new Rentier(300, 500);
-        viewController.draw(bRentier);
-
-        aFlocken = new Flocken();
-        viewController.draw(aFlocken);
-
-        aGeschenke = new Geschenke();
-        viewController.draw(aGeschenke);
-
-        aClouds = new Clouds(aSun);
-        viewController.draw(aClouds);
-
-        LightSetter aLightSetter = new LightSetter(0, 0, 1000, 1029, aSun);
-        viewController.draw(aLightSetter);
-
-        Sterne aSterne = new Sterne(aSun);
-        viewController.draw(aSterne);
-
-        Mond aMond = new Mond(-1000, 100, 75/2, 50);
-        viewController.draw(aMond);
-
-        aGameManager = new GameManager(aGeschenke);
-
 
     }
 
@@ -94,8 +47,6 @@ public class ProgramController {
      */
     public void updateProgram(double dt){
 
-        aGameManager.checkPos();
-
     }
 
     /**
@@ -104,11 +55,6 @@ public class ProgramController {
      * @param e Das übergebene Objekt enthält alle Informationen zum MouseEvent
      */
     public void mouseClicked(MouseEvent e){
-        if(e.getButton() == 1) {
-            aGameManager.checkCollision(e.getX(), e.getY());
-        }else if(e.getButton() == 3){
-            aClouds.newCloud(e.getX(), e.getY());
-        }
 
     }
 
